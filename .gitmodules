@@ -1,0 +1,6 @@
+[submodule "vendor/github.com/gorilla/websocket"]
+	path = vendor/github.com/gorilla/websocket
+	url = git@github.com:gorilla/websocket.git
+[submodule "vendor/github.com/eclipse/paho.mqtt.golang"]
+	path = vendor/github.com/eclipse/paho.mqtt.golang
+	url = git@github.com:eclipse/paho.mqtt.golang.git

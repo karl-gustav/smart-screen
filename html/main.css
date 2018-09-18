@@ -1,0 +1,58 @@
+html {
+  background: url(images/bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #d24d57;
+    width: 100%;
+    height: 2rem;
+    text-align: center;
+    line-height: 2rem;
+}
+
+table {
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+
+.widgets {
+    font-size: 1.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.widget {
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    padding: 2rem;
+    flex-grow: 1;
+    width: fit-content;
+    overflow: hidden;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+.widget.fixedwidth {
+    width: 25rem;
+}

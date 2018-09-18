@@ -1,0 +1,12 @@
+[Unit]
+Description=smart-screen
+
+[Service]
+Type=simple
+WorkingDirectory=/srv/smart-screen/
+ExecStart=/srv/smart-screen/smart-screen
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
