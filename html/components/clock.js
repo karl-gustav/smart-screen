@@ -7,7 +7,7 @@ export default {
     data() {
         return {
             clockStyle: {
-                "font-size": "17rem",
+                "font-size": "15rem",
             },
         };
     },
