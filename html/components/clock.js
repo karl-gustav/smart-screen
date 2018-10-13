@@ -8,6 +8,7 @@ export default {
         return {
             clockStyle: {
                 "font-size": "15rem",
+                "text-align": "center",
             },
         };
     },
