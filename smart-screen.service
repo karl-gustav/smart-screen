@@ -4,7 +4,7 @@ Description=smart-screen
 [Service]
 Type=simple
 WorkingDirectory=/srv/smart-screen/
-ExecStart=/srv/smart-screen/smart-screen
+ExecStart=/srv/smart-screen/smart-screen -p 8080 -ms 10.0.0.5
 Restart=always
 RestartSec=5
 

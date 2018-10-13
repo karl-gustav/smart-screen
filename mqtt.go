@@ -29,7 +29,7 @@ func ConnectMqtt(serverAddress string, port int) (incommingMessages chan MqttMes
 		if err := subscribeHandler(client, incommingMessages); err != nil {
 			message = "Failed to subscribe to messages: " + err.Error()
 		} else {
-			message = "Connected to MQTT server!"
+			message = fmt.Sprintf("Connected to MQTT server on %s:%d!", serverAddress, port)
 		}
 		log.Println(message)
 	})

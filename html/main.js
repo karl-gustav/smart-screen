@@ -2,8 +2,9 @@ import store from './store.js';
 import './components/index.js';
 import * as websocket from './services/websocket.js';
 
-console.log("Connecting to websocket")
-websocket.connect(`ws://${location.host}/ws`)
+const url = `ws://${location.host}/ws`
+console.log(`Connecting to websocket on ${url}`)
+websocket.connect(url)
 
 new Vue({
     template: `

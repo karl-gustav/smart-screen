@@ -1,14 +1,14 @@
 package main
 
 import (
+	"flag"
+	"fmt"
 	"log"
 	"net/http"
 	"time"
 
 	"github.com/gorilla/websocket"
 )
-
-const port = "8080"
 
 var clients = make(map[*websocket.Conn]bool)
 
@@ -25,17 +25,22 @@ var outgoingWSMessages = make(chan OutgoingWSMessage)
 var errIsOfType = websocket.IsUnexpectedCloseError
 
 func main() {
+	port := flag.Int("p", 8000, "Port this server will run on")
+	mqttServer := flag.String("ms", "localhost", "MQTT server")
+	mqttPort := flag.Int("mp", 1883, "MQTT server port")
+	flag.Parse()
+
 	fs := http.FileServer(http.Dir("html"))
 	http.Handle("/", fs)
 	http.HandleFunc("/ws", handleWS)
 
-	domoticzMessages, domoticzCommands := ConnectMqtt("10.0.0.5", 1883)
+	domoticzMessages, domoticzCommands := ConnectMqtt(*mqttServer, *mqttPort)
 
 	go handleDomoticzMessages(domoticzMessages)
 	go handleWsMessages(domoticzCommands)
 
-	log.Printf("Listening on http://localhost:%s...\n", port)
-	err := http.ListenAndServe(":"+port, nil)
+	log.Printf("Listening on http://localhost:%d...\n", *port)
+	err := http.ListenAndServe(fmt.Sprintf(":%d", *port), nil)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
